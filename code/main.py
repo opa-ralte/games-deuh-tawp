@@ -12,6 +12,10 @@ pygame.display.set_caption("games deuh tawp ang chi kha!!!")
 icon_surface = pygame.image.load(os.path.join('images', 'icon', 'cropped_icon.jpg'), 'cropped_icon').convert_alpha()
 pygame.display.set_icon(icon_surface)
 
+avatar = pygame.Surface((50, 50))
+avatar_x = WIDTH//2
+avatar_y = HEIGHT//2
+
 
 on_action = True
 
@@ -29,6 +33,21 @@ while on_action:
     pygame.draw.line(display_surface, (200, 200, 0), (10, 10), (100, 100), 10)
     pygame.draw.arc(display_surface, (200, 100, 200), pygame.Rect(10, 100, 500, 500), 0.1, 1, 30)
     pygame.draw.polygon(display_surface, (100, 100, 0), [(100, 100), (200, 300), (500, 600), (700, 700)], 20)
+
+    display_surface.blit(avatar, (avatar_x, avatar_y))
+    if pygame.key.get_just_pressed()[pygame.K_a]:
+        avatar_x -= 32
+
+    if pygame.key.get_just_pressed()[pygame.K_d]:
+        avatar_x += 32
+
+    if pygame.key.get_just_pressed()[pygame.K_w]:
+        avatar_y -= 32
+
+    if pygame.key.get_just_pressed()[pygame.K_s]:
+        avatar_y += 32
+
+    
     pygame.display.flip()
 
 pygame.quit()
