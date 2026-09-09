@@ -19,6 +19,7 @@ avatar_y = HEIGHT//2
 
 on_action = True
 
+
 while on_action:
     # event handling
     for event in pygame.event.get():
@@ -27,25 +28,31 @@ while on_action:
         
 
     # draw the game
-    display_surface.fill('cornsilk1')
-    pygame.draw.line(display_surface, 'red', (20, 30), (70, 50), 5)
-    pygame.draw.line(display_surface, 'red', (70, 50), (70, 100), 5)
-    pygame.draw.line(display_surface, (200, 200, 0), (10, 10), (100, 100), 10)
-    pygame.draw.arc(display_surface, (200, 100, 200), pygame.Rect(10, 100, 500, 500), 0.1, 1, 30)
-    pygame.draw.polygon(display_surface, (100, 100, 0), [(100, 100), (200, 300), (500, 600), (700, 700)], 20)
+    # display_surface.fill('cornsilk1')
+    # pygame.draw.line(display_surface, 'red', (20, 30), (70, 50), 5)
+    # pygame.draw.line(display_surface, 'red', (70, 50), (70, 100), 5)
+    # pygame.draw.line(display_surface, (200, 200, 0), (10, 10), (100, 100), 10)
+    # pygame.draw.arc(display_surface, (200, 100, 200), pygame.Rect(10, 100, 500, 500), 0.1, 1, 30)
+    # pygame.draw.polygon(display_surface, (100, 100, 0), [(100, 100), (200, 300), (500, 600), (700, 700)], 20)
 
     display_surface.blit(avatar, (avatar_x, avatar_y))
+    
     if pygame.key.get_just_pressed()[pygame.K_a]:
+        avatar.fill('red')
         avatar_x -= 32
 
     if pygame.key.get_just_pressed()[pygame.K_d]:
+        avatar.fill('yellow')
         avatar_x += 32
 
     if pygame.key.get_just_pressed()[pygame.K_w]:
+        avatar.fill('green')
         avatar_y -= 32
 
     if pygame.key.get_just_pressed()[pygame.K_s]:
+        avatar.fill('blue')
         avatar_y += 32
+    
 
     
     pygame.display.flip()
